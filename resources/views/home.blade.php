@@ -183,4 +183,60 @@
         </div>
     </section>
 
+    <section id="kontak" class="section">
+        <div class="container">
+            <div class="split-head" data-reveal-group>
+                <div data-reveal="left">
+                    <p class="eyebrow">Lokasi & Kontak</p>
+                    <h2 class="section-title" data-parallax="0.04">Temukan Padukuhan Soka langsung di peta.</h2>
+                </div>
+                <p class="section-copy" data-reveal="right">
+                    Titik peta sekarang diarahkan ke Balai Dusun Soka Mertelu, sehingga pengunjung bisa membuka
+                    rute menuju titik yang lebih spesifik langsung dari Google Maps.
+                </p>
+            </div>
+
+            <div class="map-layout" data-reveal-group>
+                <article class="map-copy" data-reveal="left" data-lustre>
+                    <span class="badge">Google Maps</span>
+                    <h3>{{ $location['name'] }}</h3>
+                    <p>
+                        {{ $location['address'] }}.
+                    </p>
+
+                    <dl class="map-details">
+                        <div>
+                            <dt>Plus code</dt>
+                            <dd>{{ $location['plus_code'] }}</dd>
+                        </div>
+                        <div>
+                            <dt>Akses</dt>
+                            <dd>Bisa dibuka langsung di browser, ponsel, atau aplikasi Google Maps.</dd>
+                        </div>
+                        <div>
+                            <dt>Keterangan</dt>
+                            <dd>Cocok untuk memandu tamu, warga, dan pengunjung menuju Balai Dusun Soka Mertelu.</dd>
+                        </div>
+                    </dl>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="{{ $location['google_maps_url'] }}" target="_blank" rel="noreferrer">Buka di Google Maps</a>
+                        <a class="button button-outline" href="{{ $location['direction_url'] }}" target="_blank" rel="noreferrer">Rute ke Lokasi</a>
+                    </div>
+                </article>
+
+                <div class="map-card" data-reveal="zoom" data-lustre>
+                    <iframe
+                        class="map-frame"
+                        title="Peta lokasi Padukuhan Soka"
+                        src="{{ $location['embed_url'] }}"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection

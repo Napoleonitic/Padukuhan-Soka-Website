@@ -12,11 +12,6 @@
                 <p class="section-copy">
                     Gunakan akun admin untuk menambah berita, memperbarui kegiatan warga, dan mengelola galeri foto.
                 </p>
-                <div class="info-panel">
-                    <strong>Akun demo admin</strong>
-                    <p>Email: <code>admin@soka.test</code></p>
-                    <p>Password: <code>admin12345</code></p>
-                </div>
             </div>
 
             <div class="auth-card">

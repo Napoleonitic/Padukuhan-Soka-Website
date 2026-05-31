@@ -648,6 +648,73 @@ main,
     column-gap: 1.25rem;
 }
 
+.map-layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.35fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.map-copy,
+.map-card {
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius-lg) + 4px);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.map-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.7rem;
+}
+
+.map-copy h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3vw, 2.75rem);
+}
+
+.map-details {
+    display: grid;
+    gap: 0.9rem;
+    margin: 0;
+}
+
+.map-details div {
+    padding: 0.95rem 1rem;
+    border-radius: var(--radius-md);
+    background: rgba(111, 141, 85, 0.08);
+}
+
+.map-details dt {
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--moss-600);
+}
+
+.map-details dd {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.map-card {
+    overflow: hidden;
+    min-height: 520px;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    border: 0;
+}
+
 .gallery-card {
     break-inside: avoid;
     margin: 0 0 1.25rem;
@@ -1089,6 +1156,7 @@ main,
     .profile-grid,
     .card-grid,
     .article-grid,
+    .map-layout,
     .footer-grid,
     .metrics-grid,
     .gallery-admin-grid,
@@ -1154,6 +1222,16 @@ main,
 @media (max-width: 560px) {
     .container {
         width: min(100% - 1.2rem, 1380px);
+    }
+
+    .map-copy,
+    .map-card {
+        border-radius: var(--radius-lg);
+    }
+
+    .map-card,
+    .map-frame {
+        min-height: 380px;
     }
 
     .stat-grid,

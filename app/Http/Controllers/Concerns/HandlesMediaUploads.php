@@ -14,9 +14,7 @@ trait HandlesMediaUploads
             return null;
         }
 
-        $path = $file->store($directory, 'public');
-
-        return Storage::disk('public')->url($path);
+        return $file->store($directory, 'public');
     }
 
     protected function replaceUploadedFile(?UploadedFile $file, ?string $currentUrl, string $directory): ?string
@@ -30,12 +28,43 @@ trait HandlesMediaUploads
         return $this->storeUploadedFile($file, $directory);
     }
 
-    protected function deleteStoredFile(?string $url): void
+    protected function deleteStoredFile(?string $pathOrUrl): void
     {
-        if (! $url || ! Str::startsWith($url, '/storage/')) {
+        $storagePath = $this->extractStoragePath($pathOrUrl);
+
+        if (! $storagePath) {
             return;
         }
 
-        Storage::disk('public')->delete(Str::after($url, '/storage/'));
+        Storage::disk('public')->delete($storagePath);
+    }
+
+    protected function extractStoragePath(?string $pathOrUrl): ?string
+    {
+        if (! $pathOrUrl) {
+            return null;
+        }
+
+        if (filter_var($pathOrUrl, FILTER_VALIDATE_URL)) {
+            $path = parse_url($pathOrUrl, PHP_URL_PATH);
+
+            if (! is_string($path) || ! Str::startsWith($path, '/storage/')) {
+                return null;
+            }
+
+            $pathOrUrl = $path;
+        }
+
+        $pathOrUrl = ltrim(str_replace('\\', '/', $pathOrUrl), '/');
+
+        if (Str::startsWith($pathOrUrl, 'images/')) {
+            return null;
+        }
+
+        if (Str::startsWith($pathOrUrl, 'storage/')) {
+            return Str::after($pathOrUrl, 'storage/');
+        }
+
+        return $pathOrUrl;
     }
 }

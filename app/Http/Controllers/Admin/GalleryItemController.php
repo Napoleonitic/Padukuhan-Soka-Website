@@ -46,12 +46,14 @@ class GalleryItemController extends Controller
             ->with('success', 'Foto galeri berhasil ditambahkan.');
     }
 
-    public function edit(GalleryItem $galleryItem): View
+    public function edit(GalleryItem $gallery): View
     {
-        return view('admin.gallery.edit', compact('galleryItem'));
+        return view('admin.gallery.edit', [
+            'galleryItem' => $gallery,
+        ]);
     }
 
-    public function update(Request $request, GalleryItem $galleryItem): RedirectResponse
+    public function update(Request $request, GalleryItem $gallery): RedirectResponse
     {
         $validated = $request->validate([
             'title' => ['nullable', 'string', 'max:255'],
@@ -59,10 +61,10 @@ class GalleryItemController extends Controller
             'image' => ['nullable', 'image', 'max:4096'],
         ]);
 
-        $galleryItem->update([
+        $gallery->update([
             'title' => $validated['title'] ?? null,
             'caption' => $validated['caption'] ?? null,
-            'image_url' => $this->replaceUploadedFile($request->file('image'), $galleryItem->image_url, 'gallery'),
+            'image_url' => $this->replaceUploadedFile($request->file('image'), $gallery->image_url, 'gallery'),
         ]);
 
         return redirect()
@@ -70,10 +72,10 @@ class GalleryItemController extends Controller
             ->with('success', 'Foto galeri berhasil diperbarui.');
     }
 
-    public function destroy(GalleryItem $galleryItem): RedirectResponse
+    public function destroy(GalleryItem $gallery): RedirectResponse
     {
-        $this->deleteStoredFile($galleryItem->image_url);
-        $galleryItem->delete();
+        $this->deleteStoredFile($gallery->image_url);
+        $gallery->delete();
 
         return redirect()
             ->route('admin.gallery.index')

@@ -28,8 +28,8 @@
                             <strong>{{ $galleryItem->title ?: 'Tanpa judul' }}</strong>
                             <p>{{ $galleryItem->caption ?: 'Tanpa caption.' }}</p>
                             <div class="action-row">
-                                <a class="button button-outline" href="{{ route('admin.gallery.edit', $galleryItem) }}">Edit / Ganti Foto</a>
-                                <form method="POST" action="{{ route('admin.gallery.destroy', $galleryItem) }}">
+                                <a class="button button-outline" href="{{ route('admin.gallery.edit', ['gallery' => $galleryItem]) }}">Edit / Ganti Foto</a>
+                                <form method="POST" action="{{ route('admin.gallery.destroy', ['gallery' => $galleryItem]) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="button button-danger" type="submit" onclick="return confirm('Hapus foto ini?')">Hapus</button>

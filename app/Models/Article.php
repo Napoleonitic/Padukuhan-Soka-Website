@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\ResolvesMediaUrls;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use ResolvesMediaUrls;
+
     protected $fillable = [
         'title',
         'slug',
@@ -34,5 +38,12 @@ class Article extends Model
                     ->whereNull('published_at')
                     ->orWhere('published_at', '<=', now());
             });
+    }
+
+    protected function coverImage(): Attribute
+    {
+        return Attribute::make(
+            get: fn (?string $value) => $this->resolveMediaUrl($value),
+        );
     }
 }

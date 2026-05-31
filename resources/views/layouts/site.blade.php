@@ -48,7 +48,7 @@
         @yield('content')
     </main>
 
-    <footer id="kontak" class="footer">
+    <footer class="footer">
         <div class="container footer-grid" data-reveal-group>
             <div data-reveal="left">
                 <p class="eyebrow">Padukuhan Soka</p>

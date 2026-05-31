@@ -16,6 +16,8 @@ class ExampleTest extends TestCase
         $response
             ->assertOk()
             ->assertSee('Padukuhan Soka')
-            ->assertSee('Selamat datang di Padukuhan Soka');
+            ->assertSee('Selamat datang di Padukuhan Soka')
+            ->assertSee('Temukan Padukuhan Soka langsung di peta.')
+            ->assertSee('Buka di Google Maps');
     }
 }
