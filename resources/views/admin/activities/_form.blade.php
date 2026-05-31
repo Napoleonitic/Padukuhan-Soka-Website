@@ -23,7 +23,11 @@
         <div class="field">
             <label class="field-label" for="image">Foto kegiatan</label>
             <input class="input" id="image" name="image" type="file" accept="image/*">
+            <p class="help-text">
+                {{ $method === 'POST' ? 'Tambahkan foto agar kegiatan tampil lebih sesuai di halaman utama.' : 'Pilih foto baru jika ingin mengganti foto kegiatan yang sekarang.' }}
+            </p>
             @if ($activity->image)
+                <p class="help-text">Foto saat ini:</p>
                 <img class="image-preview" src="{{ $activity->image }}" alt="{{ $activity->title }}">
             @endif
         </div>

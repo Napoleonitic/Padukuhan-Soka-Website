@@ -2,7 +2,7 @@
 
 @section('title', 'Kelola Kegiatan | Admin Soka')
 @section('heading', 'Kegiatan')
-@section('subheading', 'Atur kegiatan warga, tanggal agenda, dan gambar pendukung.')
+@section('subheading', 'Atur kegiatan warga sekaligus tambah atau ganti foto yang tampil di halaman utama.')
 
 @section('content')
     <section class="table-card">
@@ -40,7 +40,7 @@
                                 <td>{{ $activity->category ?? 'Kegiatan warga' }}</td>
                                 <td>{{ $activity->event_date?->format('d M Y') ?? '-' }}</td>
                                 <td class="action-row">
-                                    <a class="button button-outline" href="{{ route('admin.activities.edit', $activity) }}">Edit</a>
+                                    <a class="button button-outline" href="{{ route('admin.activities.edit', $activity) }}">Edit / Ganti Foto</a>
                                     <form method="POST" action="{{ route('admin.activities.destroy', $activity) }}">
                                         @csrf
                                         @method('DELETE')

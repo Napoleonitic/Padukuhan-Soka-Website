@@ -19,7 +19,11 @@
     <div class="field">
         <label class="field-label" for="image">Gambar</label>
         <input class="input" id="image" name="image" type="file" accept="image/*" {{ $method === 'POST' ? 'required' : '' }}>
+        <p class="help-text">
+            {{ $method === 'POST' ? 'Unggah foto baru untuk ditampilkan di galeri.' : 'Pilih foto baru jika ingin mengganti gambar yang sekarang.' }}
+        </p>
         @if ($galleryItem->image_url)
+            <p class="help-text">Foto saat ini:</p>
             <img class="image-preview" src="{{ $galleryItem->image_url }}" alt="{{ $galleryItem->title ?: 'Galeri Padukuhan Soka' }}">
         @endif
     </div>

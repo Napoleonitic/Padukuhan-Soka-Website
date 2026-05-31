@@ -151,10 +151,10 @@
             <div class="split-head" data-reveal-group>
                 <div data-reveal="left">
                     <p class="eyebrow">Galeri</p>
-                    <h2 class="section-title" data-parallax="0.04">Wajah Soka dalam palet hijau dan cahaya pagi.</h2>
+                    <h2 class="section-title" data-parallax="0.04">Dokumentasi kegiatan dan suasana Padukuhan Soka.</h2>
                 </div>
                 <p class="section-copy" data-reveal="right">
-                    Dokumentasi kegiatan dan suasana kampung disusun dalam grid bergaya editorial agar terasa lebih hidup.
+                    Foto yang tampil di bawah mengikuti gambar, judul, dan caption yang diunggah admin dari dashboard.
                 </p>
             </div>
 

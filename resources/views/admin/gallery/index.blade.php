@@ -2,7 +2,7 @@
 
 @section('title', 'Kelola Galeri | Admin Soka')
 @section('heading', 'Galeri')
-@section('subheading', 'Unggah dan rawat dokumentasi visual Padukuhan Soka.')
+@section('subheading', 'Tambah foto baru atau ganti foto yang sudah ada untuk galeri website.')
 
 @section('content')
     <section class="table-card">
@@ -28,7 +28,7 @@
                             <strong>{{ $galleryItem->title ?: 'Tanpa judul' }}</strong>
                             <p>{{ $galleryItem->caption ?: 'Tanpa caption.' }}</p>
                             <div class="action-row">
-                                <a class="button button-outline" href="{{ route('admin.gallery.edit', $galleryItem) }}">Edit</a>
+                                <a class="button button-outline" href="{{ route('admin.gallery.edit', $galleryItem) }}">Edit / Ganti Foto</a>
                                 <form method="POST" action="{{ route('admin.gallery.destroy', $galleryItem) }}">
                                     @csrf
                                     @method('DELETE')

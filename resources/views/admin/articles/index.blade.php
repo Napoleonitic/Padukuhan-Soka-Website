@@ -2,7 +2,7 @@
 
 @section('title', 'Kelola Berita | Admin Soka')
 @section('heading', 'Berita')
-@section('subheading', 'Tambah, ubah, dan atur status publikasi berita Padukuhan Soka.')
+@section('subheading', 'Tambah, ubah, dan atur status berita, termasuk cover foto jika diperlukan.')
 
 @section('content')
     <section class="table-card">
@@ -44,7 +44,7 @@
                                 </td>
                                 <td>{{ optional($article->published_at)->format('d M Y') ?? $article->created_at->format('d M Y') }}</td>
                                 <td class="action-row">
-                                    <a class="button button-outline" href="{{ route('admin.articles.edit', $article) }}">Edit</a>
+                                    <a class="button button-outline" href="{{ route('admin.articles.edit', $article) }}">Edit / Ganti Cover</a>
                                     <form method="POST" action="{{ route('admin.articles.destroy', $article) }}">
                                         @csrf
                                         @method('DELETE')

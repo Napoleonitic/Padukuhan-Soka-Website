@@ -13,8 +13,11 @@
         <div class="field">
             <label class="field-label" for="cover_image">Cover</label>
             <input class="input" id="cover_image" name="cover_image" type="file" accept="image/*">
-            <p class="help-text">Biarkan kosong jika tidak ingin mengganti gambar.</p>
+            <p class="help-text">
+                {{ $method === 'POST' ? 'Tambahkan cover foto jika berita ingin tampil dengan gambar.' : 'Pilih gambar baru untuk mengganti cover yang sekarang, atau biarkan kosong jika tidak ingin mengubahnya.' }}
+            </p>
             @if ($article->cover_image)
+                <p class="help-text">Cover saat ini:</p>
                 <img class="image-preview" src="{{ $article->cover_image }}" alt="{{ $article->title }}">
             @endif
         </div>
