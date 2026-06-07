@@ -98,8 +98,9 @@ code {
 }
 
 .container {
-    width: min(1380px, calc(100% - 5rem));
+    width: min(1380px, 100%);
     margin: 0 auto;
+    padding-inline: 2.5rem;
 }
 
 .site-header,
@@ -118,6 +119,8 @@ main,
 
 .nav-shell {
     position: relative;
+    width: 100%;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1256,7 +1259,7 @@ main,
 
 @media (max-width: 820px) {
     .container {
-        width: min(100% - 2rem, 1380px);
+        padding-inline: 1rem;
     }
 
     .footer-bottom,
@@ -1333,11 +1336,29 @@ main,
         width: 100%;
         padding: 0.9rem 1rem;
         background: rgba(255, 255, 255, 0.06);
-        text-align: left;
+        text-align: center;
     }
 
     .nav-actions .button {
         width: 100%;
+    }
+
+    .hero-inner {
+        max-width: 100%;
+        margin: 0 auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-copy {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        width: 100%;
+        max-width: 24rem;
+        margin: 0 auto;
     }
 
     .hero,
@@ -1353,7 +1374,7 @@ main,
 
 @media (max-width: 560px) {
     .container {
-        width: min(100% - 1.2rem, 1380px);
+        padding-inline: 0.6rem;
     }
 
     .site-header {
