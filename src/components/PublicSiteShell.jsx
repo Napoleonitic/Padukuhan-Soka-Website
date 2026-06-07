@@ -1,52 +1,9 @@
+import { SiteHeader } from "@/components/SiteHeader";
+
 export function PublicSiteShell({ children, isAdminAuthenticated = false }) {
   return (
     <>
-      <header className="site-header">
-        <div className="container">
-          <div className="nav-shell" data-reveal="down" data-lustre="">
-            <a className="brand" href="/">
-              <span className="brand-mark">S</span>
-              <span className="brand-copy">
-                <strong>Padukuhan Soka</strong>
-                <small>Mertelu, Gedangsari</small>
-              </span>
-            </a>
-
-            <nav className="site-nav" aria-label="Navigasi utama">
-              <a className="nav-link" href="/#profil">
-                Profil
-              </a>
-              <a className="nav-link" href="/#kegiatan">
-                Kegiatan
-              </a>
-              <a className="nav-link" href="/#berita">
-                Berita
-              </a>
-              <a className="nav-link" href="/#galeri">
-                Galeri
-              </a>
-              <a className="nav-link" href="/#kontak">
-                Kontak
-              </a>
-            </nav>
-
-            <div className="nav-actions">
-              <a className="button button-ghost" href="/#kontak">
-                Hubungi
-              </a>
-              {isAdminAuthenticated ? (
-                <a className="button button-primary" href="/admin">
-                  Dashboard
-                </a>
-              ) : (
-                <a className="button button-primary" href="/admin/login">
-                  Admin Login
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
+      <SiteHeader isAdminAuthenticated={isAdminAuthenticated} />
 
       <main>{children}</main>
 

@@ -9,6 +9,25 @@ function buildLoginRedirect(error) {
   return `/admin/login?error=${encodeURIComponent(error)}`;
 }
 
+function getAuthErrorMessage(error) {
+  if (!error) {
+    return "Login admin gagal.";
+  }
+
+  if (
+    error.code === "email_not_confirmed" ||
+    error.message === "Email not confirmed"
+  ) {
+    return "Email admin belum dikonfirmasi di Supabase. Nonaktifkan Confirm Email atau konfirmasi user admin terlebih dahulu.";
+  }
+
+  if (error.code === "invalid_credentials") {
+    return "Email atau kata sandi tidak cocok.";
+  }
+
+  return error.message || "Login admin gagal.";
+}
+
 export async function loginAction(formData) {
   if (!isSupabaseConfigured()) {
     redirect(
@@ -32,7 +51,7 @@ export async function loginAction(formData) {
   });
 
   if (error) {
-    redirect(buildLoginRedirect("Email atau kata sandi tidak cocok."));
+    redirect(buildLoginRedirect(getAuthErrorMessage(error)));
   }
 
   const {
