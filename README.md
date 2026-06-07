@@ -44,9 +44,16 @@ Sisa file Laravel lama yang tidak dipakai sudah dibersihkan, jadi repository ini
 4. Di Supabase SQL Editor, jalankan:
 
    - `supabase/schema.sql`
+   - `supabase/admin-bootstrap.sql`
    - `supabase/seed.sql`
 
 5. Buat akun admin awal:
+
+   ```bash
+   npm run setup:admin:public
+   ```
+
+   Jika kamu nanti punya `SUPABASE_SERVICE_ROLE_KEY`, kamu juga bisa pakai:
 
    ```bash
    npm run setup:admin
@@ -80,5 +87,7 @@ Variable environment di Vercel harus sama seperti `.env.local`.
 - `src/app` berisi route publik dan admin Next.js
 - `src/lib` berisi auth, query data, upload media, dan helper Supabase
 - `supabase/schema.sql` berisi tabel, RLS policy, dan storage policy
+- `supabase/admin-bootstrap.sql` menandai `admin@soka.id` sebagai admin otomatis saat user auth dibuat
 - `supabase/seed.sql` berisi data awal
-- `scripts/bootstrap-admin.mjs` membuat akun admin awal di Supabase Auth
+- `scripts/register-admin.mjs` mendaftarkan akun admin awal memakai publishable key
+- `scripts/bootstrap-admin.mjs` membuat akun admin awal memakai service role key

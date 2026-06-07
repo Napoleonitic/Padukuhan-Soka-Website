@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "setup:admin": "node scripts/bootstrap-admin.mjs"
+    "setup:admin": "node scripts/bootstrap-admin.mjs",
+    "setup:admin:public": "node --env-file=.env.local scripts/register-admin.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",
