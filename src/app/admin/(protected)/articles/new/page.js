@@ -21,7 +21,12 @@ export default function NewArticlePage({ searchParams }) {
       <FlashMessage error={error} />
 
       <section className="table-card">
-        <ArticleForm article={{ is_published: true }} action={createArticle} submitLabel="Simpan Berita" />
+        <ArticleForm
+          article={{ is_published: true }}
+          action={createArticle}
+          submitLabel="Simpan Berita"
+          confirmMessage="Yakin ingin menambahkan berita ini?"
+        />
       </section>
     </>
   );

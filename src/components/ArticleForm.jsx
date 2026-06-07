@@ -1,3 +1,4 @@
+import { ConfirmForm } from "@/components/ConfirmForm";
 import { resolveMediaUrl } from "@/lib/media";
 
 export function ArticleForm({
@@ -5,11 +6,17 @@ export function ArticleForm({
   action,
   submitLabel,
   cancelHref = "/admin/articles",
+  confirmMessage,
 }) {
   const previewUrl = resolveMediaUrl(article?.cover_image);
 
   return (
-    <form action={action} className="stack" encType="multipart/form-data">
+    <ConfirmForm
+      action={action}
+      className="stack"
+      confirmMessage={confirmMessage}
+      encType="multipart/form-data"
+    >
       <div className="form-grid">
         <div className="field">
           <label className="field-label" htmlFor="title">
@@ -95,6 +102,6 @@ export function ArticleForm({
           Batal
         </a>
       </div>
-    </form>
+    </ConfirmForm>
   );
 }

@@ -1,3 +1,4 @@
+import { ConfirmForm } from "@/components/ConfirmForm";
 import { FlashMessage } from "@/components/FlashMessage";
 import { deleteActivity, getAdminActivities } from "@/lib/admin-content";
 import { formatDate, limitText } from "@/lib/format";
@@ -61,11 +62,14 @@ export default async function AdminActivitiesPage({ searchParams }) {
                       >
                         Edit / Ganti Foto
                       </a>
-                      <form action={deleteActivity.bind(null, activity.id)}>
+                      <ConfirmForm
+                        action={deleteActivity.bind(null, activity.id)}
+                        confirmMessage="Yakin ingin menghapus kegiatan ini? Tindakan ini tidak bisa dibatalkan."
+                      >
                         <button className="button button-danger" type="submit">
                           Hapus
                         </button>
-                      </form>
+                      </ConfirmForm>
                     </td>
                   </tr>
                 ))}

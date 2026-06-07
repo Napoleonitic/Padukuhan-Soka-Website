@@ -1,3 +1,4 @@
+import { ConfirmForm } from "@/components/ConfirmForm";
 import { resolveMediaUrl } from "@/lib/media";
 
 export function ActivityForm({
@@ -5,11 +6,17 @@ export function ActivityForm({
   action,
   submitLabel,
   cancelHref = "/admin/activities",
+  confirmMessage,
 }) {
   const previewUrl = resolveMediaUrl(activity?.image);
 
   return (
-    <form action={action} className="stack" encType="multipart/form-data">
+    <ConfirmForm
+      action={action}
+      className="stack"
+      confirmMessage={confirmMessage}
+      encType="multipart/form-data"
+    >
       <div className="form-grid">
         <div className="field">
           <label className="field-label" htmlFor="title">
@@ -98,6 +105,6 @@ export function ActivityForm({
           Batal
         </a>
       </div>
-    </form>
+    </ConfirmForm>
   );
 }

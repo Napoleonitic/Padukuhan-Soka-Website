@@ -22,7 +22,12 @@ export default function NewActivityPage({ searchParams }) {
       <FlashMessage error={error} />
 
       <section className="table-card">
-        <ActivityForm activity={{}} action={createActivity} submitLabel="Simpan Kegiatan" />
+        <ActivityForm
+          activity={{}}
+          action={createActivity}
+          submitLabel="Simpan Kegiatan"
+          confirmMessage="Yakin ingin menambahkan kegiatan ini?"
+        />
       </section>
     </>
   );

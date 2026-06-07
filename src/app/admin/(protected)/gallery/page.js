@@ -1,3 +1,4 @@
+import { ConfirmForm } from "@/components/ConfirmForm";
 import { FlashMessage } from "@/components/FlashMessage";
 import { deleteGalleryItem, getAdminGalleryItems } from "@/lib/admin-content";
 import { resolveMediaUrl } from "@/lib/media";
@@ -51,11 +52,14 @@ export default async function AdminGalleryPage({ searchParams }) {
                     >
                       Edit / Ganti Foto
                     </a>
-                    <form action={deleteGalleryItem.bind(null, galleryItem.id)}>
+                    <ConfirmForm
+                      action={deleteGalleryItem.bind(null, galleryItem.id)}
+                      confirmMessage="Yakin ingin menghapus foto ini dari galeri? Tindakan ini tidak bisa dibatalkan."
+                    >
                       <button className="button button-danger" type="submit">
                         Hapus
                       </button>
-                    </form>
+                    </ConfirmForm>
                   </div>
                 </div>
               </article>

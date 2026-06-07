@@ -22,7 +22,12 @@ export default function NewGalleryItemPage({ searchParams }) {
       <FlashMessage error={error} />
 
       <section className="table-card">
-        <GalleryForm galleryItem={{}} action={createGalleryItem} submitLabel="Simpan Foto" />
+        <GalleryForm
+          galleryItem={{}}
+          action={createGalleryItem}
+          submitLabel="Simpan Foto"
+          confirmMessage="Yakin ingin menambahkan foto ini ke galeri?"
+        />
       </section>
     </>
   );

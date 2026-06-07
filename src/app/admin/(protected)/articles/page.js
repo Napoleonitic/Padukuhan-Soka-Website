@@ -1,3 +1,4 @@
+import { ConfirmForm } from "@/components/ConfirmForm";
 import { ArticleForm } from "@/components/ArticleForm";
 import { FlashMessage } from "@/components/FlashMessage";
 import { deleteArticle, getAdminArticles } from "@/lib/admin-content";
@@ -70,11 +71,14 @@ export default async function AdminArticlesPage({ searchParams }) {
                       >
                         Edit / Ganti Cover
                       </a>
-                      <form action={deleteArticle.bind(null, article.id)}>
+                      <ConfirmForm
+                        action={deleteArticle.bind(null, article.id)}
+                        confirmMessage="Yakin ingin menghapus berita ini? Tindakan ini tidak bisa dibatalkan."
+                      >
                         <button className="button button-danger" type="submit">
                           Hapus
                         </button>
-                      </form>
+                      </ConfirmForm>
                     </td>
                   </tr>
                 ))}
