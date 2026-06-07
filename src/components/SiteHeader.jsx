@@ -37,8 +37,6 @@ export function SiteHeader({ isAdminAuthenticated = false }) {
       <div className="container">
         <div
           className={`nav-shell${isMenuOpen ? " is-open" : ""}`}
-          data-reveal="down"
-          data-lustre=""
         >
           <a className="brand" href="/" onClick={closeMenu}>
             <span className="brand-mark">S</span>
