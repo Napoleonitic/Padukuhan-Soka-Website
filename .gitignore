@@ -19,3 +19,5 @@ next-dev.err
 .env.local
 .env*.local
 Thumbs.db
+
+.vercel
