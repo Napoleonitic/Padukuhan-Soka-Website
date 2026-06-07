@@ -73,6 +73,7 @@ Variable environment di Vercel harus sama seperti `.env.local`.
 - Upload gambar baru masuk ke bucket `soka-media`
 - Konten seed awal masih memakai asset lokal di `public/images`
 - Auth admin memakai Supabase Auth, lalu akses admin divalidasi melalui tabel `public.admins`
+- Middleware refresh session tidak dipakai, karena build Edge Middleware Vercel sempat gagal pada deploy. Validasi akses admin tetap dilakukan di server component dan server action.
 
 ## File penting
 
