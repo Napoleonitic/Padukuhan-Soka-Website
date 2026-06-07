@@ -29,7 +29,7 @@ Sisa file Laravel lama yang tidak dipakai sudah dibersihkan, jadi repository ini
    copy .env.example .env.local
    ```
 
-3. Isi variable berikut di `.env.local`:
+3. `.env.local` sudah bisa memakai default Supabase project yang sekarang. Kalau mau override, isi variable berikut:
 
    ```bash
    NEXT_PUBLIC_SUPABASE_URL=...
@@ -67,13 +67,15 @@ Sisa file Laravel lama yang tidak dipakai sudah dibersihkan, jadi repository ini
 
 ## Deploy ke Vercel
 
+Untuk build runtime dasar, app sekarang punya fallback URL dan publishable key Supabase di kode. Jadi Vercel tidak wajib diisi env variable production hanya untuk menampilkan site dan login admin.
+
 Jika kamu meng-import folder parent `PADUKUHAN SOKA WEBSITE FINAL`, set `Root Directory` di Vercel ke:
 
 ```bash
 Padukuhan-Soka-Website
 ```
 
-Variable environment di Vercel harus sama seperti `.env.local`.
+`SUPABASE_SERVICE_ROLE_KEY` tetap opsional dan hanya dipakai untuk script bootstrap admin yang berjalan di lokal/server terpisah, bukan runtime frontend/admin biasa.
 
 ## Catatan Supabase
 
