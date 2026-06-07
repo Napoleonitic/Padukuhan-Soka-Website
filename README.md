@@ -1,61 +1,83 @@
 # Padukuhan Soka Website
 
-Portal resmi Padukuhan Soka berbasis Laravel. Proyek ini menyediakan:
+Versi ini sudah dipindahkan ke stack yang lebih cocok untuk deployment di Vercel:
 
-- Halaman publik dengan tema `Forest & Moss`
-- Login admin native Laravel
-- Dashboard admin untuk mengelola berita, kegiatan, dan galeri
-- Upload gambar ke storage lokal Laravel
+- Next.js App Router untuk frontend dan route admin
+- Supabase untuk database, auth, dan storage upload
+- Vercel-friendly build pipeline dengan runtime Node
 
-## Stack
+Sisa file Laravel lama yang tidak dipakai sudah dibersihkan, jadi repository ini sekarang fokus ke app Next.js + Supabase.
 
-- PHP 8.2
-- Laravel 12
-- SQLite untuk pengembangan lokal
-- Blade templates untuk frontend
+## Stack aktif
 
-## Menjalankan Proyek
+- Next.js 14
+- React 18
+- `@supabase/supabase-js`
+- `@supabase/ssr`
+
+## Menjalankan lokal
 
 1. Install dependency:
 
    ```bash
-   composer install
+   npm install
    ```
 
 2. Siapkan environment:
 
    ```bash
-   copy .env.example .env
-   php artisan key:generate
+   copy .env.example .env.local
    ```
 
-3. Jalankan migrasi, seed, dan storage link:
+3. Isi variable berikut di `.env.local`:
 
    ```bash
-   php artisan migrate:fresh --seed
-   php artisan storage:link
+   NEXT_PUBLIC_SUPABASE_URL=...
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
+   NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET=soka-media
+   SUPABASE_SERVICE_ROLE_KEY=...
+   SUPABASE_ADMIN_EMAIL=admin@soka.id
+   SUPABASE_ADMIN_PASSWORD=change-me-please
+   SUPABASE_ADMIN_NAME=Admin Soka
    ```
 
-4. Jalankan server lokal:
+4. Di Supabase SQL Editor, jalankan:
+
+   - `supabase/schema.sql`
+   - `supabase/seed.sql`
+
+5. Buat akun admin awal:
 
    ```bash
-   php artisan serve
+   npm run setup:admin
    ```
 
-## Akun Admin Demo
+6. Jalankan app:
 
-- Email: `admin@soka.test`
-- Password: `admin12345`
+   ```bash
+   npm run dev
+   ```
 
-## Pengujian
+## Deploy ke Vercel
+
+Jika kamu meng-import folder parent `PADUKUHAN SOKA WEBSITE FINAL`, set `Root Directory` di Vercel ke:
 
 ```bash
-php artisan test
+Padukuhan-Soka-Website
 ```
 
-## Struktur Konten
+Variable environment di Vercel harus sama seperti `.env.local`.
 
-- `app/Http/Controllers/Admin` berisi controller CRUD admin
-- `resources/views` berisi tampilan publik dan dashboard admin
-- `database/seeders/DatabaseSeeder.php` berisi akun demo dan data awal
-- `public/css/app.css` berisi tema visual website
+## Catatan Supabase
+
+- Upload gambar baru masuk ke bucket `soka-media`
+- Konten seed awal masih memakai asset lokal di `public/images`
+- Auth admin memakai Supabase Auth, lalu akses admin divalidasi melalui tabel `public.admins`
+
+## File penting
+
+- `src/app` berisi route publik dan admin Next.js
+- `src/lib` berisi auth, query data, upload media, dan helper Supabase
+- `supabase/schema.sql` berisi tabel, RLS policy, dan storage policy
+- `supabase/seed.sql` berisi data awal
+- `scripts/bootstrap-admin.mjs` membuat akun admin awal di Supabase Auth
