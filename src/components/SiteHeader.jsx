@@ -39,7 +39,7 @@ export function SiteHeader({ isAdminAuthenticated = false }) {
           className={`nav-shell${isMenuOpen ? " is-open" : ""}`}
         >
           <a className="brand" href="/" onClick={closeMenu}>
-            <span className="brand-mark">S</span>
+            {isAdminAuthenticated ? <span className="brand-mark">S</span> : null}
             <span className="brand-copy">
               <strong>Padukuhan Soka</strong>
               <small>Mertelu, Gedangsari</small>
