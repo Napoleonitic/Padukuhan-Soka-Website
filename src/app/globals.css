@@ -21,6 +21,7 @@
     --radius-sm: 12px;
     --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
     --font-sans: "Manrope", "Segoe UI", "Trebuchet MS", sans-serif;
+    --font-admin: var(--font-raleway, "Raleway", "Segoe UI", sans-serif);
 }
 
 * {
@@ -937,18 +938,24 @@ main,
 }
 
 .admin-body {
+    --font-display: var(--font-admin);
+    --font-sans: var(--font-admin);
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
+    font-family: var(--font-admin);
     background:
         radial-gradient(circle at top right, rgba(140, 171, 109, 0.18), transparent 24%),
         linear-gradient(180deg, #f6f4ec, #eaf0e5);
 }
 
 .admin-shell {
+    --font-display: var(--font-admin);
+    --font-sans: var(--font-admin);
     display: grid;
     grid-template-columns: 280px minmax(0, 1fr);
     min-height: 100vh;
+    font-family: var(--font-admin);
 }
 
 .admin-sidebar {
@@ -1014,6 +1021,8 @@ main,
 
 .admin-header h1 {
     font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    letter-spacing: 0;
 }
 
 .admin-header-copy {
@@ -1032,7 +1041,39 @@ main,
 }
 
 .metric-card {
+    display: flex;
+    min-height: 112px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.45rem;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 241, 232, 0.82));
+}
+
+.admin-shell .metric-card span,
+.admin-shell .metric-card strong,
+.admin-shell .metric-card small {
+    display: block;
+}
+
+.admin-shell .metric-card span {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--forest-700);
+}
+
+.admin-shell .metric-card strong {
+    max-width: 100%;
+    font-size: clamp(1.9rem, 2.4vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1;
+    overflow-wrap: anywhere;
+}
+
+.admin-shell .metric-card small {
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 .table-actions {
@@ -1042,6 +1083,8 @@ main,
 
 .table-actions h2 {
     font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: 0;
 }
 
 .table-scroll {
