@@ -11,6 +11,14 @@ export const villageLocation = {
   longitude: 110.627765625,
 };
 
+export const siteContact = {
+  phone: "+62 821-3323-6287",
+  phoneHref: "tel:+6282133236287",
+  whatsappUrl: "https://wa.me/6282133236287",
+  email: "sukece.32@gmail.com",
+  emailHref: "mailto:sukece.32@gmail.com",
+};
+
 export function getMapLinks() {
   const coordinates = `${villageLocation.latitude},${villageLocation.longitude}`;
 

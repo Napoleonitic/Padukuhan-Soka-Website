@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/SiteHeader";
+import { siteContact } from "@/lib/site-config";
 
 export function PublicSiteShell({ children, isAdminAuthenticated = false }) {
   return (
@@ -24,8 +25,12 @@ export function PublicSiteShell({ children, isAdminAuthenticated = false }) {
           </div>
           <div className="info-panel" data-reveal="up" data-lustre="">
             <strong>Kontak</strong>
-            <p>Email: soka@mertelu.id</p>
-            <p>Telepon: +62 274 000 000</p>
+            <p>
+              Email: <a href={siteContact.emailHref}>{siteContact.email}</a>
+            </p>
+            <p>
+              Telepon: <a href={siteContact.phoneHref}>{siteContact.phone}</a>
+            </p>
           </div>
         </div>
         <div className="container footer-bottom" data-reveal-group="">

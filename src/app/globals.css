@@ -19,9 +19,10 @@
     --radius-lg: 24px;
     --radius-md: 18px;
     --radius-sm: 12px;
-    --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-    --font-sans: "Manrope", "Segoe UI", "Trebuchet MS", sans-serif;
-    --font-admin: var(--font-raleway, "Raleway", "Segoe UI", sans-serif);
+    --font-sf-pro: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --font-display: var(--font-sf-pro);
+    --font-sans: var(--font-sf-pro);
+    --font-admin: var(--font-sf-pro);
 }
 
 * {
@@ -609,9 +610,12 @@ main,
     font-family: var(--font-display);
 }
 
-.media-copy p,
-.gallery-caption span {
+.media-copy p {
     color: rgba(248, 251, 244, 0.82);
+}
+
+.gallery-caption span {
+    color: var(--muted);
 }
 
 .feature-card {

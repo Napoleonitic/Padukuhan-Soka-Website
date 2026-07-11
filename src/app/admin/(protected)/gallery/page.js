@@ -44,7 +44,7 @@ export default async function AdminGalleryPage({ searchParams }) {
                 />
                 <div className="gallery-admin-copy">
                   <strong>{galleryItem.title || "Tanpa judul"}</strong>
-                  <p>{galleryItem.caption || "Tanpa caption."}</p>
+                  <p>{galleryItem.caption || "Tanpa deskripsi."}</p>
                   <div className="action-row">
                     <a
                       className="button button-outline"

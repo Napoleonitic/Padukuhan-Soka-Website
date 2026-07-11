@@ -21,7 +21,7 @@ export default async function EditGalleryItemPage({ params, searchParams }) {
           <h1>Edit Foto</h1>
         </div>
         <p className="admin-header-copy">
-          Perbarui judul, caption, atau ganti gambar galeri yang sudah ada.
+          Perbarui judul, deskripsi, atau ganti gambar galeri yang sudah ada.
         </p>
       </header>
 

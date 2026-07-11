@@ -33,7 +33,7 @@ export function GalleryForm({
 
         <div className="field">
           <label className="field-label" htmlFor="caption">
-            Caption
+            Deskripsi foto
           </label>
           <input
             className="input"

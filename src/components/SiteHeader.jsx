@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import { siteContact } from "@/lib/site-config";
+
 const primaryLinks = [
   { href: "/#profil", label: "Profil" },
   { href: "/#kegiatan", label: "Kegiatan" },
@@ -74,7 +76,13 @@ export function SiteHeader({ isAdminAuthenticated = false }) {
             </nav>
 
             <div className="nav-actions">
-              <a className="button button-ghost" href="/#kontak" onClick={closeMenu}>
+              <a
+                className="button button-ghost"
+                href={siteContact.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={closeMenu}
+              >
                 Hubungi
               </a>
               {isAdminAuthenticated ? (

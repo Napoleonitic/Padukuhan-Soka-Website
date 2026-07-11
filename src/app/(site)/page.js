@@ -1,5 +1,6 @@
 import { getHomePageData } from "@/lib/content";
 import { formatDate, limitText } from "@/lib/format";
+import { siteContact } from "@/lib/site-config";
 
 export default async function HomePage() {
   const { articles, activities, galleryItems, location } = await getHomePageData();
@@ -217,8 +218,8 @@ export default async function HomePage() {
               </h2>
             </div>
             <p className="section-copy" data-reveal="right">
-              Foto yang tampil di bawah mengikuti gambar, judul, dan caption
-              yang diunggah admin dari dashboard.
+              Kumpulan dokumentasi visual kegiatan warga, potensi lokal, dan
+              suasana Padukuhan Soka yang terus diperbarui.
             </p>
           </div>
 
@@ -276,6 +277,23 @@ export default async function HomePage() {
               <p>{location.address}.</p>
 
               <dl className="map-details">
+                <div>
+                  <dt>Hubungi</dt>
+                  <dd>
+                    <a
+                      className="text-link"
+                      href={siteContact.whatsappUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {siteContact.phone}
+                    </a>
+                    <br />
+                    <a className="text-link" href={siteContact.emailHref}>
+                      {siteContact.email}
+                    </a>
+                  </dd>
+                </div>
                 <div>
                   <dt>Plus code</dt>
                   <dd>{location.plusCode}</dd>
